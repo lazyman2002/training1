@@ -62,6 +62,14 @@ public class Maze {
 		 * xanh dương hãy set giá trị của điểm trên ma trận sang một số > 2
 		 */
 
+		/**
+		 *	Kiểm tra tính hợp lệ của tọa độ trong mê cung
+		 * @param mazeX ví trí của trục hoành
+		 * @param mazeY	vị trí trục tung
+		 * @return -1	Nếu vị trí không hợp lệ (ngoài biên, tường)
+		 * 			1	Nếu vị trí là đích đến
+		 * 			0	Nếu vị trí là đường đi
+		 */
 		public int isValid(int mazeX, int mazeY){
 			if(mazeX < 0 || mazeX > sizeh || mazeY < 0 || mazeY > sizew){
 				return -1;
@@ -74,6 +82,12 @@ public class Maze {
 			}
 			return 0;
 		}
+
+		/**
+		 * Thêm nút mới vào hàng đội ưu tiên
+		 * Kiểm tra nút đã đi qua hay chưa
+		 * @param newNode
+		 */
 		public void addNode(Node newNode){
 			if(visited.contains(newNode)){
 				return;
@@ -91,6 +105,11 @@ public class Maze {
 				PQ.add(newNode);
 			}
 		}
+
+		/**
+		 *	Vẽ màu cho mê cung từ điểm đích về điểm đầu
+		 * @param newNode
+		 */
 		public void draw(Node newNode){
 			while(newNode != null){
 				maze[newNode.getX()][newNode.getY()] = 3;
