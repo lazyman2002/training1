@@ -116,6 +116,12 @@ public class Maze {
 				newNode = newNode.getParent();
 			}
 		}
+
+		/**
+		 * Sử dụng thuật toán A* để tìm đường ngắn nhất
+		 * X, Y là tọa độ đích
+		 *
+		 */
 		public void solve() {
 			// Hàm này chứa phương pháp tìm đường từ điểm start đến vị
 			// trí màu đỏ trên ma trận
